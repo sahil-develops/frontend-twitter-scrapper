@@ -64,7 +64,7 @@ const LeadTable = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="max-w-7xl w-full mx-auto p-4">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col lg:flex-row my-6 justify-between gap-5"

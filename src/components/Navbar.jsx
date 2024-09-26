@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md relative">
+    <nav className="bg-white  relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -51,7 +51,7 @@ const Navbar = () => {
             <a href="#" className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
               Log in
             </a>
-            <a href="#" className="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-md text-sm font-medium">
+            <a href="#" className="bg-black hover:scale-105 transition-all duration-150 ease-in text-white px-4 py-2 rounded-md text-sm font-medium">
               Get started
             </a>
           </div>
@@ -110,7 +110,7 @@ const Navbar = () => {
               <a href="#" className="block w-full px-4 py-2 text-center text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded-md">
                 Log in
               </a>
-              <a href="#" className="block w-full px-4 py-2 mt-4 text-center text-base font-medium text-white bg-yellow-400 hover:bg-yellow-500 rounded-md">
+              <a href="#" className="block w-full px-4 py-2 mt-4 text-center text-base font-medium text-white bg-black hover:scale-105 transition-all duration-150 ease-in rounded-md">
                 Get started
               </a>
             </div>
