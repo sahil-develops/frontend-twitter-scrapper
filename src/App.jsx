@@ -6,6 +6,7 @@ import LeadsPage from './pages/LeadsPage';
 import LandingPage from './pages/LandingPage';
 import CardDetailsPage from './pages/CardDetailsPage/CardDetailsPage'
 import { cards } from './data/data';
+import KeywordAnalysis from './pages/KeywordAnalysis';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/leads" element={<LeadsPage />} />
           <Route path="/card/:id" element={<CardDetailsPage cards={cards}/>} />
+          <Route path="/keyword" element={<KeywordAnalysis/>} />
         </Routes>
       </div>
     </Router>
