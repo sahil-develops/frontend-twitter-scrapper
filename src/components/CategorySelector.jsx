@@ -1,15 +1,16 @@
+import { color } from 'framer-motion'
 import React, { useState } from 'react'
 import Select from 'react-select'
 const CategoryItem = ({ item }) => (
-  <div className='flex flex-col justify-start items-start gap-y-4 '>
-    <div className='flex flex-col lg:flex-row border-b hover:bg-gray-100 p-4  transition-all duration-100 delay-100 ease-in-out border-gray-300 pb-3 justify-between w-full items-start gap-5'>
+  <div className='flex flex-col justify-start items-start group gap-y-4 '>
+    <div className='flex flex-col lg:flex-row border-b  group-hover:bg-gray-800 group-hover:rounded-md p-4  transition-all duration-100 delay-100 ease-in-out border-gray-800 pb-3 justify-between w-full items-start gap-5'>
       <div className='flex flex-col lg:flex-row gap-2 lg:gap-5 justify-start'>
         <div>
           <img width="48" height="48" src={item.icon} alt={item.iconAlt} />
         </div>
         <div className='flex flex-col justify-start items-start gap-y-2'>
           <p className='text-gray-500 lg:text-sm font-normal'>{item.mention}</p>
-          <p className='text-black py-0.5 lg:text-lg font-medium'>{item.title}</p>
+          <p className='text-white group-hover:scale-105 py-0.5 group-hover:delay-100  transition-all group-hover:duration-200 lg:text-lg font-medium'>{item.title}</p>
           <p className='lg:text-sm text-gray-600 font-normal'>{item.description}</p>
         </div>
       </div>
@@ -28,7 +29,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => (
         className={`px-3 py-1 rounded ${
           currentPage === page + 1
             ? 'bg-black text-white'
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            : 'bg-gray-800 text-gray-700 hover:bg-gray-800'
         }`}
       >
         {page + 1}
@@ -39,8 +40,9 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => (
 const customStyles = {
   control: (provided) => ({
     ...provided,
-    backgroundColor: 'white',
-    borderColor: '#D1D5DB',
+    backgroundColor: 'gray.900',
+    color: 'white',
+    borderColor: 'gray.500',
     '&:hover': {
       borderColor: '#9CA3AF',
     },
@@ -99,7 +101,7 @@ const CategorySelector = ({ data, itemsPerPage = 5 }) => {
   }
 
   return (
-    <div className='max-w-5xl p-8 w-full mx-auto'>
+    <div className='max-w-7xl p-8 w-full mx-auto'>
       <div className='flex flex-col md:flex-row justify-between items-center w-full mb-6 space-y-4 md:space-y-0 md:space-x-0'>
        <div className='flex flex-row justify-start items-center gap-x-4'>
 

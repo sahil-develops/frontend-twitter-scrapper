@@ -33,8 +33,8 @@ const CardDetailsPage = ({cards}) => {
           <div className="text-gray-300 mb-6">
             <span className="font-semibold">Category:</span> {card.category}
           </div>
-          <Link to="/" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-            Back to Featured Tabs
+          <Link to="/keyword" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+Get Started
           </Link>
         </div>
       </div>

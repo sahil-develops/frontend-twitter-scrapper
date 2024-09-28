@@ -47,7 +47,7 @@ const HomePage = () => {
     // ... more objects as needed
   ]
   return (
-    <div>
+    <div className='bg-gray-900'>
 <CategorySelector data={apiData} />
       {/* <Hero /> */}
     </div>

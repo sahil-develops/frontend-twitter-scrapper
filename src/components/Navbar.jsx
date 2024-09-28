@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LoginModal from './Modal/LoginModal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +135,8 @@ const Navbar = () => {
           </motion.div>
         )}
         {showLoginModal && (
-          <motion.div 
+          <>
+          {/* <motion.div 
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
             initial="hidden"
             animate="visible"
@@ -152,14 +154,16 @@ const Navbar = () => {
                 </button>
               </div>
               <button 
-                onClick={() => {/* Implement Google login logic */}}
+                
                 className="w-full bg-white text-gray-900 py-2 px-4 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors duration-300"
               >
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" className="w-6 h-6 mr-2" />
                 Sign in with Google
               </button>
             </div>
-          </motion.div>
+          </motion.div> */}
+          <LoginModal setShowLoginModal={setShowLoginModal} />
+          </>
         )}
       </AnimatePresence>
     </nav>

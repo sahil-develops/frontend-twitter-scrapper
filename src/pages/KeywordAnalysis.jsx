@@ -1,124 +1,71 @@
 import React from 'react';
-import { FaSearch, FaFlag, FaCity, FaGoogle, FaInfoCircle, FaRobot, FaCopy, FaDownload } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-const KeywordAnalysis = () => {
-  const analysisCards = [
-    {
-      title: "SERP Parasite Score",
-      score: "Medium",
-      value: 77,
-      paid: 7,
-      free: 7,
-      imageUrl: "https://images.pexels.com/photos/1624881/pexels-photo-1624881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
-      title: "Parasite Opportunity Score",
-      score: "High",
-      value: 79,
-      paid: 10,
-      free: 5,
-      imageUrl: "https://images.pexels.com/photos/1624881/pexels-photo-1624881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
-      title: "Primary Category",
-      score: "Astrology & Horoscopes",
-      subtext: "Zodiac Signs, Horoscopes",
-      imageUrl: "https://images.pexels.com/photos/1624881/pexels-photo-1624881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    }
-  ];
-
+const SearchBar = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
-      {/* Search Form */}
-      <div className="grid max-w-7xl px-8 w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-        <div className="lg:col-span-2">
-          <label className="block mb-2">Keyword *</label>
-          <div className="relative">
-            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <input type="text" placeholder="astrology signs" className="w-full bg-gray-800 rounded-md py-2 pl-10 pr-3" />
-          </div>
-        </div>
-        <div>
-          <label className="block mb-2">Search Engine *</label>
-          <div className="relative">
-            <FaGoogle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <select className="w-full bg-gray-800 rounded-md py-2 pl-10 pr-3 appearance-none">
-              <option>Google</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label className="block mb-2">Country *</label>
-          <div className="relative">
-            <FaFlag className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <select className="w-full bg-gray-800 rounded-md py-2 pl-10 pr-3 appearance-none">
-              <option>United States</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label className="block mb-2">City</label>
-          <div className="relative">
-            <FaCity className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <select className="w-full bg-gray-800 rounded-md py-2 pl-10 pr-3 appearance-none">
-              <option>Any City</option>
-            </select>
-          </div>
-        </div>
-      </div>
-<div className='max-w-7xl px-8 w-full mx-auto'>
+    <div className="flex flex-col sm:flex-row gap-2 mb-4">
+      <input
+        type="text"
+        placeholder="Please Provide Three Keywords"
+        className="flex-grow p-2 bg-gray-700 text-white rounded"
+      />
+      <input
+        type="date"
+        className="p-2 bg-gray-700 text-white rounded"
+      />
+      <input
+        type="number"
+        placeholder="Number of Results"
+        className="p-2 bg-gray-700 text-white rounded"
+      />
+      <input
+        type="email"
+        placeholder="Receiver's Email"
+        className="p-2 bg-gray-700 text-white rounded"
+      />
+      <button className="p-2 bg-blue-600 text-white px-8 rounded">Submit</button>
+    </div>
+  );
+};
 
-      {/* Analyze Button */}
-      <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mb-8">
-        <FaSearch className="inline-block mr-2" /> ANALYZE
-      </button>
+const TopicCard = ({ title, description }) => {
+  const navigate = useNavigate();
+  return (
+    <div className="bg-gray-800 p-4 rounded-lg" onClick={()=>navigate("/details")}>
+      <h3 className="text-white text-lg font-bold mb-2">{title}</h3>
+      <p className="text-gray-300">{description}</p>
+    </div>
+  );
+};
 
-      {/* Results */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Keyword: astrology signs</h2>
-        <p className="text-gray-400 mb-4">
-          <FaFlag className="inline-block mr-2" /> US Search Volume: 210,000
-        </p>
-        <div className="flex space-x-4">
-          <FaRobot className="text-gray-400" />
-          <FaCopy className="text-gray-400" />
-          <FaDownload className="text-gray-400" />
-        </div>
-      </div>
-</div>
+const topics = [
+  { title: "Hiring for Frontend Job", description: "Find potential candidates for frontend positions" },
+  { title: "Leads for Marketing", description: "Discover potential marketing leads and trends" },
+  { title: "News on B2B", description: "Stay updated on the latest B2B news and trends" },
+  { title: "Crypto Market Trends", description: "Track the latest developments in the cryptocurrency market" },
+  { title: "AI in Healthcare", description: "Explore AI applications and breakthroughs in the healthcare industry" },
+  { title: "Sustainable Fashion", description: "Discover trends and innovations in sustainable fashion" },
+  { title: "Remote Work Tools", description: "Find the latest tools and strategies for effective remote work" },
+  { title: "Electric Vehicle Market", description: "Stay informed about developments in the electric vehicle industry" },
+  { title: "Mental Health Awareness", description: "Explore discussions and resources related to mental health" },
+  { title: "Fintech Innovations", description: "Explore the latest trends and technologies in financial technology" },
+  { title: "Space Exploration News", description: "Stay updated on the latest developments in space exploration and technology" },
+  { title: "Green Energy Solutions", description: "Track advancements in renewable energy technologies and sustainable power solutions" },
+];
 
-      {/* Analysis Cards */}
-      <div className="grid grid-cols-1 max-w-7xl px-8 w-full mx-auto md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {analysisCards.map((card, index) => (
-          <AnalysisCard key={index} {...card} />
+function KeywordAnalysis() {
+  return (
+    <div className="min-h-screen bg-gray-900 text-white p-4">
+    <div className=' max-w-7xl w-full mx-auto py-10 px-6'>
+      <SearchBar />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {topics.map((topic, index) => (
+          <TopicCard key={index} title={topic.title} description={topic.description} />
         ))}
       </div>
     </div>
-  );
-};
-
-const AnalysisCard = ({ title, score, value, paid, free, subtext, imageUrl }) => {
-  return (
-    <div className="bg-gray-800 rounded-lg p-6">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-lg font-semibold">{title} <FaInfoCircle className="inline-block text-gray-400" /></h3>
-        <img src={imageUrl} alt="Random" className="w-16 h-16 rounded-full object-cover" />
-      </div>
-      <div className="text-3xl font-bold mb-4">{score}</div>
-      {value && (
-        <div className="text-xl mb-2">
-          {value}<span className="text-sm text-gray-400">/100</span>
-        </div>
-      )}
-      {paid && free && (
-        <div>
-          <span className="bg-purple-600 text-white px-2 py-1 rounded mr-2">Paid: {paid}</span>
-          <span className="text-gray-400">Free: {free}</span>
-        </div>
-      )}
-      {subtext && <p className="text-gray-400">{subtext}</p>}
     </div>
   );
-};
+}
 
 export default KeywordAnalysis;
