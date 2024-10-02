@@ -20,7 +20,7 @@ export default function EssayWriter() {
 
 
     </div>
-          <div className="bg-gray-900 rounded-lg p-6 mb-8 lg:max-w-4xl mx-auto">
+          <div className="bg-black rounded-lg p-6 mb-8 lg:max-w-4xl mx-auto">
           <h2 className="text-xl font-semibold mb-4">Advance features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -87,7 +87,7 @@ export default function EssayWriter() {
           <p className="text-sm text-gray-400 mt-4">* Kindly furnish additional details in the designated text area.</p>
         </div>
 
-        <div className="bg-gray-900 rounded-lg lg:max-w-4xl mx-auto p-6 mb-8">
+        <div className="bg-black rounded-lg lg:max-w-4xl mx-auto p-6 mb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Essay Writer</h2>
             <span className="bg-yellow-500 text-black px-2 py-1 rounded text-sm">2 credits left</span>
