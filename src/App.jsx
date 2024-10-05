@@ -8,6 +8,9 @@ import CardDetailsPage from './pages/CardDetailsPage/CardDetailsPage'
 import { cards } from './data/data';
 import KeywordAnalysis from './pages/KeywordAnalysis';
 import Quill from './pages/Quill';
+import PostGen from './components/PostGen/PostGen';
+// import PostGen from './pages/Linkedin';
+
 
 function App() {
   return (
@@ -21,7 +24,8 @@ function App() {
           <Route path="/card/:id" element={<CardDetailsPage cards={cards}/>} />
           <Route path="/keyword" element={<KeywordAnalysis/>} />
           <Route path="/essay" element={<Quill/>} />
-
+          <Route path="/linkedin" element={<PostGen/>} />
+<Route path="/posGen" element={<PostGen/>} />
         </Routes>
       </div>
     </Router>
