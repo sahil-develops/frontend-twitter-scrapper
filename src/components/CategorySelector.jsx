@@ -1,9 +1,10 @@
 import { color } from 'framer-motion'
 import React, { useState } from 'react'
 import Select from 'react-select'
+
 const CategoryItem = ({ item }) => (
   <div className='flex flex-col justify-start items-start group gap-y-4 '>
-    <div className='flex flex-col lg:flex-row border-b  group-hover:bg-gray-800 group-hover:rounded-md p-4  transition-all duration-100 delay-100 ease-in-out border-gray-800 pb-3 justify-between w-full items-start gap-5'>
+    <div className='flex flex-col lg:flex-row border-b  group-hover:bg-black group-hover:rounded-md p-4  transition-all duration-100 delay-100 ease-in-out border-gray-800 pb-3 justify-between w-full items-start gap-5'>
       <div className='flex flex-col lg:flex-row gap-2 lg:gap-5 justify-start'>
         <div>
           <img width="48" height="48" src={item.icon} alt={item.iconAlt} />
@@ -29,7 +30,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => (
         className={`px-3 py-1 rounded ${
           currentPage === page + 1
             ? 'bg-black text-white'
-            : 'bg-gray-800 text-gray-700 hover:bg-gray-800'
+            : 'bg-black text-gray-700 hover:bg-black'
         }`}
       >
         {page + 1}

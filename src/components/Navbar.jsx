@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoginModal from './Modal/LoginModal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [user, setUser] = useState(null);
 
   const sidebarVariants = {
     closed: {
@@ -26,53 +27,59 @@ const Navbar = () => {
     }
   };
 
-  const modalVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.8,
-      transition: { ease: "easeInOut", duration: 0.3 }
-    }
-  };
-
   const handleLoginClick = () => {
     setShowLoginModal(true);
   };
 
+  const handleLoginSuccess = (userData) => {
+    setUser(userData);
+    setShowLoginModal(false);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
-    <nav className="bg-gray-900 text-white relative">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between h-16">
-        <div className="flex items-center">
-          <a href="/" className="flex-shrink-0 flex items-center">
-            <span className="text-xl font-bold">ListenUp!</span>
-          </a>
-        </div>
-        <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-          <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
-            Product
-          </a>
-          <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
-            Features
-          </a>
-          <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
-            Contact
-          </a>
-          {/* ... repeat for other nav items ... */}
-        </div>
-        <div className="hidden sm:ml-6 sm:flex sm:items-center">
-          <button onClick={handleLoginClick} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            Log in
-          </button>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ease-in">
-            Get started
-          </a>
-        </div>
+    <nav className="bg-black text-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <a href="/" className="flex-shrink-0 flex items-center">
+              <span className="text-xl font-bold">kezare Ai </span>
+            </a>
+          </div>
+          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+              Product
+            </a>
+            <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+              Features
+            </a>
+            <a href="#" className="border-b-2 border-transparent hover:border-gray-600 text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+              Contact
+            </a>
+          </div>
+          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            {user ? (
+              <div className="flex items-center">
+                <User className="h-5 w-5 text-gray-300 mr-2" />
+                <span className="text-gray-300 mr-4">{user.name || user.email}</span>
+                <button onClick={handleLogout} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <>
+                <button onClick={handleLoginClick} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Log in
+                </button>
+                <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ease-in">
+                  Get started
+                </a>
+              </>
+            )}
+          </div>
           <div className="flex items-center sm:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -87,7 +94,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="fixed inset-y-0 right-0 max-w-xs w-full bg-gray-800 shadow-xl z-50 overflow-y-auto sm:hidden"
+            className="fixed inset-y-0 right-0 max-w-xs w-full bg-black shadow-xl z-50 overflow-y-auto sm:hidden"
             initial="closed"
             animate="open"
             exit="closed"
@@ -125,45 +132,31 @@ const Navbar = () => {
               </div>
             </div>
             <div className="pt-5 pb-6 px-5 border-t border-gray-700">
-              <a href="#" className="block w-full px-4 py-2 text-center text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
-                Log in
-              </a>
-              <a href="#" className="block w-full px-4 py-2 mt-4 text-center text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all duration-150 ease-in">
-                Get started
-              </a>
+              {user ? (
+                <>
+                  <div className="flex items-center mb-4">
+                    <User className="h-5 w-5 text-gray-300 mr-2" />
+                    <span className="text-gray-300">{user.name || user.email}</span>
+                  </div>
+                  <button onClick={handleLogout} className="block w-full px-4 py-2 text-center text-base font-medium text-gray-300 hover:text-white hover:bg-black rounded-md">
+                    Log out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button onClick={handleLoginClick} className="block w-full px-4 py-2 text-center text-base font-medium text-gray-300 hover:text-white hover:bg-black rounded-md">
+                    Log in
+                  </button>
+                  <a href="#" className="block w-full px-4 py-2 mt-4 text-center text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all duration-150 ease-in">
+                    Get started
+                  </a>
+                </>
+              )}
             </div>
           </motion.div>
         )}
         {showLoginModal && (
-          <>
-          {/* <motion.div 
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={modalVariants}
-          >
-            <div className="bg-gray-800 p-8 rounded-lg shadow-xl max-w-sm w-full">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-bold">Log in</h2>
-                <button 
-                  onClick={() => setShowLoginModal(false)}
-                  className="text-gray-400 hover:text-white"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              <button 
-                
-                className="w-full bg-white text-gray-900 py-2 px-4 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors duration-300"
-              >
-                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" className="w-6 h-6 mr-2" />
-                Sign in with Google
-              </button>
-            </div>
-          </motion.div> */}
-          <LoginModal setShowLoginModal={setShowLoginModal} />
-          </>
+          <LoginModal setShowLoginModal={setShowLoginModal} onLoginSuccess={handleLoginSuccess} />
         )}
       </AnimatePresence>
     </nav>

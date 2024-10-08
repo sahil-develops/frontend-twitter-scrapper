@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import CategorySelector from '../components/CategorySelector';
 
+
 const HomePage = () => {
   const apiData = [
     {
@@ -47,7 +48,7 @@ const HomePage = () => {
     // ... more objects as needed
   ]
   return (
-    <div className='bg-gray-900'>
+    <div className='bg-black-900'>
 <CategorySelector data={apiData} />
       {/* <Hero /> */}
     </div>

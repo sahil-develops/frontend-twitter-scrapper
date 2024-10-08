@@ -8,6 +8,7 @@ import CardDetailsPage from './pages/CardDetailsPage/CardDetailsPage'
 import { cards } from './data/data';
 import KeywordAnalysis from './pages/KeywordAnalysis';
 import Quill from './pages/Quill';
+import ResultsPage from './pages/ResultsPage';  // Import the new page
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/leads" element={<LeadsPage />} />
           <Route path="/card/:id" element={<CardDetailsPage cards={cards}/>} />
-          <Route path="/keyword" element={<KeywordAnalysis/>} />
+          <Route path="/keyword" element={<KeywordAnalysis />} />
           <Route path="/essay" element={<Quill/>} />
+          <Route path="/results" element={<ResultsPage />} />  {/* New route */}
+
 
         </Routes>
       </div>

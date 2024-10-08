@@ -18,7 +18,9 @@ const LoginModal = ({ setShowLoginModal }) => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
+      const token = await user.getIdToken(); // Extract the JWT token
       localStorage.setItem('userEmail', user.email);
+      localStorage.setItem('jwtToken', token); // Store the JWT token
       console.log("User signed in:", user);
       setShowLoginModal(false);
     // Once the user is signed in, navigate to the home page
@@ -36,7 +38,7 @@ const LoginModal = ({ setShowLoginModal }) => {
       exit="exit"
       variants={modalVariants}
     >
-      <div className="bg-gray-800 p-8 rounded-lg shadow-xl max-w-sm w-full">
+      <div className="bg-black p-8 rounded-lg shadow-xl max-w-sm w-full">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-white">Log in</h2>
           <button 

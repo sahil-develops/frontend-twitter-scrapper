@@ -12,15 +12,15 @@ const CardDetailsPage = ({cards}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-900 min-h-screen  p-8">
+    <div className="bg-black min-h-screen  p-8">
 <div className="max-w-7xl px-8 w-full mx-auto">
     <button className='bg-blue-700 text-white    px-6 rounded-md gap-x-2 flex items-center justify-between py-2' onClick={()=>navigate("/")}>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left"><path d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>
     Back</button>
 </div>
-      <div className="max-w-2xl mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+      <div className="max-w-2xl mx-auto bg-black rounded-lg overflow-hidden shadow-lg">
         <img src={card.image} alt={card.title} className="w-full h-64 object-cover" />
-        <div className="p-6">
+        <div className="p-6 bg-zinc-800/50">
           <h1 className="text-3xl font-bold text-white mb-4">{card.title}</h1>
           <div className="text-gray-300 mb-4">
             <span className="font-semibold">Author:</span> {card.author}

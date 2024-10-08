@@ -7,7 +7,7 @@ const tabs = ['Featured', 'Trending', 'Latest'];
 const TabButton = ({ label, isActive, onClick }) => (
   <button
     className={`px-4 py-2 rounded-md ${
-      isActive ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300'
+      isActive ? 'bg-blue-600 text-white' : 'bg-black text-gray-300'
     }`}
     onClick={onClick}
   >
@@ -18,9 +18,9 @@ const TabButton = ({ label, isActive, onClick }) => (
 const Card = ({ id,title, image, author, authorType, price, oldPrice }) => (
   <Link to={`/card/${id}`} className="">
 
-  <div className="bg-gray-800 rounded-lg max-h-96 h-full overflow-hidden shadow-lg">
+  <div className="bg-black rounded-lg max-h-96 h-full overflow-hidden shadow-lg">
   <img src={image} alt={title} className="w-full h-48 object-cover" />
-  <div className="p-4">
+  <div className="p-4 bg-zinc-800/50">
     <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
     <div className="flex justify-between items-center">
       <div className="text-gray-300">
@@ -47,7 +47,7 @@ const FeaturedTabsComponent = () => {
   const filteredCards = cards.filter(card => card.category === activeTab);
 
   return (
-    <div className="bg-gray-900 min-h-screen p-4 sm:p-8"> {/* Changed here */}
+    <div className="bg-black min-h-screen p-4 sm:p-8"> {/* Changed here */}
     <div className="max-w-6xl mx-auto">
       <div className="flex justify-center space-x-4 mb-8">
         {tabs.map(tab => (

@@ -100,7 +100,7 @@ const Question = ({ question, answer }) => {
     <motion.div
       animate={open ? "open" : "closed"}
       className={`rounded-xl border-[1px] border-slate-700 px-4 transition-colors ${
-        open ? "bg-gray-800" : "bg-gray-900"
+        open ? "bg-black" : "bg-black"
       }`}
     >
       <button

@@ -1,10 +1,10 @@
 export const cards = [
     {
       id: 1,
-      title: 'All-Access Pass',
+      title: 'ListenUp!',
       image: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-      author: 'UI8',
-      price: 200,
+      author: '',
+      price: 20,
       category: 'Featured'
     },
     {
