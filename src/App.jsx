@@ -9,6 +9,9 @@ import { cards } from './data/data';
 import KeywordAnalysis from './pages/KeywordAnalysis';
 import Quill from './pages/Quill';
 import ResultsPage from './pages/ResultsPage';  // Import the new page
+import PostGen from './components/PostGen/PostGen';
+// import PostGen from './pages/Linkedin';
+
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
           <Route path="/results" element={<ResultsPage />} />  {/* New route */}
 
 
+          {/* <Route path="/linkedin" element={<PostGen/>} /> */}
+{/* <Route path="/posGen" element={<PostGen/>} /> */}
         </Routes>
       </div>
     </Router>

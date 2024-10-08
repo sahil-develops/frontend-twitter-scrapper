@@ -1,6 +1,7 @@
 import React from 'react'
 import gradient from '../assets/RadialGraidient.webp'
 import FeaturedTabsComponent from '../components/FeaturedTabsComponent'
+import PostGen from '../components/PostGen/PostGen'
 const LandingPage = () => {
   return (
     <div className='w-full bg-black'>
@@ -16,6 +17,7 @@ const LandingPage = () => {
       </div>
     </div>
     <FeaturedTabsComponent />
+    {/* <PostGen/> */}
   </div>
   )
 }
